@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('complaint', function (Blueprint $table) {
             $table->id();
             $table->foreignId("reporter_id")->references('id')->on("reporter");
-            $table->string("title");
             $table->string("description");
-            $table->string("category");
             $table->string("status");
             $table->float("latitude");
             $table->float("longitude");

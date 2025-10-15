@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("complaint_id")->refences("id")->on("complaint");
             $table->string("file_path");
+            $table->string("file_name");
             $table->string("mime_type");
             $table->timestamps();
         });

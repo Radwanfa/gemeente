@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -11,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
         <!-- Styles / Scripts -->
-            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="flex flex-col h-screen">
         <nav class="flex flex-col border-b-1 sm:flex-row flex-none justify-end">
