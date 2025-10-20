@@ -40,3 +40,5 @@ function error() {
 }
 
 window.store = store;
+
+

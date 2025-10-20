@@ -55,7 +55,7 @@ class ComplaintController extends Controller
             $PController = new PhotoController();
             $id = $PController->store($complaint->id, $image);
         }
-        return response()->json(['id' => $id], Response::HTTP_CREATED);
+        return response()->json(['status', 'success'], Response::HTTP_CREATED);
     }
 
     /**
