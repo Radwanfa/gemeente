@@ -33,12 +33,40 @@ function success(position) {
 
     let response = axios.post('/complaint', formData);
 
+    alert(response.data);
+
 }
 
 function error() {
   alert("Sorry, no position available.");
 }
 
+function log_in(event) {
+    event.preventDefault()
+
+    let formData = new FormData();
+
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+
+    formData.append('username', username);
+    formData.append('password', password);
+
+    let response = axios.post('/inloggen', formData)
+        .then(function (res) {
+            if (res && res.data && res.data.ok) {
+                window.location.href = '/';
+                return;
+            }
+            alert(JSON.stringify(res.data));
+        })
+        .catch(function (err) {
+            let data = err && err.response ? err.response.data : { message: err.message };
+            alert(JSON.stringify(data));
+        });
+}
+
+window.log_in = log_in;
 window.store = store;
 
 

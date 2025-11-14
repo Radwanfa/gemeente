@@ -13,9 +13,20 @@ class ComplaintController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($limit = null, $id = null)
     {
-        //
+        if ($limit == null) {
+            $complaints = Complaint::with('reporter', 'photo')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        } else {
+          $complaints = Complaint::with('reporter')
+            ->orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();  
+        }
+
+        return $complaints;
     }
 
     /**
